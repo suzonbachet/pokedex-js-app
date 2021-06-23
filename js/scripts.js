@@ -5,6 +5,6 @@ let pokemonList = [
 	{name: 'Eve', height: 1, types: ['normal']} 
 	];
 
-for (let i = 0; i < pokemonList.lenght; i++) {
+for (let i = 0; i < pokemonList.length; i++) {
 	document.write(pokemonList.name + ' (height: pokemonList.height');
 }
