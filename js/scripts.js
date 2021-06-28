@@ -19,7 +19,7 @@ let pokemonRepository = function () {
 
 
 // Create a list of Pokemon and their caracteristics
-	pokemonList.forEach(function(pokemon) {
+	pokemonList.forEach(pokemonRepository(getAll) {
   	console.log(name);
 // Add "Wow, that's big !" after the height of the biggest Pokemon 
   	if (pokemon.height > 1) {
