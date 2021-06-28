@@ -5,13 +5,16 @@ let pokemonList = [
 	{name: 'Eve', height: 1, types: ['normal']} 
 	];
 
-// Create a list of Pokemon with their length
-for (let i = 0; i < pokemonList.length; i++) {
-// Add "Wow, that's big !" after the height of the biggest Pokemon
-	if (pokemonList[i].height > 1) {
-	document.write(pokemonList[i].name + " - height: " + pokemonList[i].height + " - Wow, that's big!" + "<br>");
+
+// Create a list of Pokemon and their caracteristics
+	pokemonList.forEach(function(pokemon) {
+  	console.log(name);
+// Add "Wow, that's big !" after the height of the biggest Pokemon 
+  	if (pokemon.height > 1) {
+	document.write(pokemon.name + " - height: " + pokemon.height + " - Wow, that's big!" + "<br>");
 }
 	else {
-	document.write(pokemonList[i].name + " - height: " + pokemonList[i].height + "<br>");
+	document.write(pokemon.name + " - height: " + pokemon.height + "<br>");
 }
-}
+	});
+
