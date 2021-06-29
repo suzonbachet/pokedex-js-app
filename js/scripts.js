@@ -1,4 +1,4 @@
-let pokemonRepository = function () {
+let pokemonRepository = (function () {
 	let pokemonList = [
 		{name: 'Bulbasur', height: 0.7, types: ['grass', 'poison']},
 		{name: 'Charmander', height: 0.6, types: ['fire']},
@@ -9,19 +9,21 @@ let pokemonRepository = function () {
 		return pokemonList;
 	}
 	function add(pokemon) {
-		pokemonList.add(pokemon);
+		pokemonList.push(pokemon);
 	}
 	return {
 		getAll: getAll,
 		add: add
-	}();
-};
+	}
+})();
+
+// Add a new pokemon to the pokemonList array
+pokemonRepository.add({name: 'Tangela', height: 3.03, types: ['grass']})
 
 // Create a list of Pokemon and their caracteristics
-	pokemonRepository.forEach(getAll(pokemon) {
-  	console.log(name);
+pokemonRepository.getAll().forEach(function(pokemon) {
 // Add "Wow, that's big !" after the height of the biggest Pokemon 
-  	if (pokemon.height > 1) {
+  	if (pokemon.height > 3) {
 	document.write(pokemon.name + " - height: " + pokemon.height + " - Wow, that's big!" + "<br>");
 }
 	else {
