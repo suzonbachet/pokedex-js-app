@@ -17,21 +17,8 @@ let pokemonRepository = function () {
 	}();
 };
 
-
 // Create a list of Pokemon and their caracteristics
-	pokemonList.forEach(pokemonRepository(getAll) {
-  	console.log(name);
-// Add "Wow, that's big !" after the height of the biggest Pokemon 
-  	if (pokemon.height > 1) {
-	document.write(pokemon.name + " - height: " + pokemon.height + " - Wow, that's big!" + "<br>");
-}
-	else {
-	document.write(pokemon.name + " - height: " + pokemon.height + "<br>");
-}
-	});
-
-
-	getAll.forEach(function(pokemon) {
+	pokemonRepository.forEach(getAll(pokemon) {
   	console.log(name);
 // Add "Wow, that's big !" after the height of the biggest Pokemon 
   	if (pokemon.height > 1) {
