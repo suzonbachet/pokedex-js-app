@@ -30,7 +30,6 @@ pokemonRepository.getAll().forEach(function(pokemon) {
 // 	else {
 // 	document.write(pokemon.name + " - height: " + pokemon.height + "<br>");
 // }
-// 	});
 	let unorderedList = document.querySelector('ul');
 	let listItem = document.createElement('li');
 	let button = document.createElement('button');
@@ -38,4 +37,5 @@ pokemonRepository.getAll().forEach(function(pokemon) {
 	button.classList.add('button');
 	listItem.appendChild('button');
 	unorderedList.appendChild('listItem')
+});
 
