@@ -1,0 +1,7 @@
+.button {
+	color: darkgreen;
+}
+
+.button:hover {
+	box-shadow: 0 8px 12px 0 rgba(34, 60, 80, .16);
+}
