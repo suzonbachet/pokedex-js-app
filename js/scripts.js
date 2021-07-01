@@ -20,8 +20,9 @@ let pokemonRepository = (function () {
 		button.classList.add("button-class");
 		listItem.appendChild("button");
 		unorderedList.appendChild("listItem");
+		// Add EventListener to the button: pokemon details should be displayd after a button click
 		button.addEventListener('click', showDetails(pokemon){
-			console.log(event);
+			console.log(pokemon);
 		});
 		}
 
