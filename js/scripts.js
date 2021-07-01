@@ -11,9 +11,21 @@ let pokemonRepository = (function () {
 	function add(pokemon) {
 		pokemonList.push(pokemon);
 	}
+
+	function addListItem(pokemon) {
+		let unorderedList = document.querySelector(".pokemon-list");
+		let listItem = document.createElement("li");
+		let button = document.createElement("button");
+		button.innerText = pokemon.name;
+		button.classList.add("button-class");
+		listItem.appendChild("button");
+		unorderedList.appendChild("listItem");
+		}
+
 	return {
 		getAll: getAll,
-		add: add
+		add: add,
+		addListItem: addListItem
 	}
 })();
 
@@ -21,21 +33,9 @@ let pokemonRepository = (function () {
 pokemonRepository.add({name: 'Tangela', height: 3.03, types: ['grass']})
 
 
-// Create a list of Pokemon and their caracteristics
+// Create a forEach loop to display every pokemon
 pokemonRepository.getAll().forEach(function(pokemon) {
-// Add "Wow, that's big !" after the height of the biggest Pokemon 
-//   	if (pokemon.height > 3) {
-// 	document.write(pokemon.name + " - height: " + pokemon.height + " - Wow, that's big!" + "<br>");
-// }
-// 	else {
-// 	document.write(pokemon.name + " - height: " + pokemon.height + "<br>");
-// }
-	let unorderedList = document.querySelector('ul');
-	let listItem = document.createElement('li');
-	let button = document.createElement('button');
-	button.innerText = pokemonRepository.getAll().name;
-	button.classList.add('button');
-	listItem.appendChild('button');
-	unorderedList.appendChild('listItem')
+// Add addListItem function into the forEach loop
+pokemonRepository.addListItem(pokemon);
 });
 
