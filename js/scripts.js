@@ -20,6 +20,9 @@ let pokemonRepository = (function () {
 		button.classList.add("button-class");
 		listItem.appendChild("button");
 		unorderedList.appendChild("listItem");
+		button.addEventListener('click', function(event){
+			console.log(event);
+		});
 		}
 
 	return {
