@@ -1,12 +1,12 @@
 .button-class {
-	background-color: gold;
-	color: cornflowerblue;
+	background-color: #FFDE00;
+	color: #3B4CCA;
 	border: none;
 	text-align: center;
 	/* text-decoration: none;*/
 	display: inline-block;
 	font-size: 20px; 
-	border-radius: 6px;
+	border-radius: 10px;
 	transition-duration: 0.3s;
 	width: 150px;
 	margin: 5px 25px 5px 25px;
@@ -14,7 +14,7 @@
 }
 
 .button-class:hover {
-	background-color: indianred; 
+	background-color: #FF0000; 
 	color: white;
 }
 
