@@ -1,7 +1,23 @@
 .button-class {
-	background-color: darkgreen;
+	background-color: gold;
+	color: cornflowerblue;
+	border: none;
+	text-align: center;
+	/* text-decoration: none;*/
+	display: inline-block;
+	font-size: 20px; 
+	border-radius: 6px;
+	transition-duration: 0.3s;
+	width: 150px;
+	margin: 5px 25px 5px 25px;
+	text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
 }
 
 .button-class:hover {
-	box-shadow: 0 8px 12px 0 rgba(34, 60, 80, .16);
+	background-color: indianred; 
+	color: white;
+}
+
+.pokemon-list {
+	list-style: none;
 }
