@@ -18,12 +18,13 @@ let pokemonRepository = (function () {
 		let button = document.createElement("button");
 		button.innerText = pokemon.name;
 		button.classList.add("button-class");
-		listItem.appendChild("button");
-		unorderedList.appendChild("listItem");
+		listItem.appendChild(button);
+		unorderedList.appendChild(listItem);
 		// Add EventListener to the button: pokemon details should be displayd after a button click
-		button.addEventListener('click', showDetails(pokemon){
+		function showDetails(pokemon) {
 			console.log(pokemon);
-		});
+		}
+		button.addEventListener('click', () => showDetails(pokemon))
 		}
 
 	return {
