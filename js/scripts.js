@@ -64,82 +64,10 @@ let pokemonRepository = (function () {
 
 	function showDetails(pokemon) {
 			loadDetails(pokemon).then(function () {
-				console.log(pokemon);
+				pokemonRepository.showModal(title, text);
 			});
 	}
 
-
-	function showErrorMessage(input, message) {
-		let container = input.parentElement;
-		// The .input-wrapper
-
-		// Remove an existing error
-		let error = container.querySelector('.error-message');
-
-		if (error) {
-			container.removeChild(error);
-		}
-
-		// Add the error if the message isn't empty
-		if (message) {
-			let error = document.createElement('div');
-			error.classList.add('error-message');
-			error.innerText = message;
-			container.appendChild(error);
-		}
-	}
-
-
-	function validateEmail() {
-		let value = emailInput.value;
-		
-		if (!value) {
-			showErrorMessage(emailInput, 'Email is a required field.');
-			return false;
-		}
-
-		if (value.indexOf('@') === -1) {
-			showErrorMessage(emailInput, 'You must enter a valid email address.');
-			return false;
-		}
-
-		showErrorMessage(emailInput, null);
-		return true;
-	}
-
-
-	function validatePassword() {
-		let value = passwordInput.value;
-		
-		if (!value) {
-			showErrorMessage(passwordInput, 'Password is a required field.');
-			return false;
-		}
-
-		if (value.length < 8) {
-			showErrorMessage(passwordInput, 'The password needs to be at least 8 characters long.');
-			return false;
-		}
-
-		showErrorMessage(passwordInput, null);
-		return true;
-	}
-
-	function valideForm() {
-		let isValidEmail = validateEmail();
-		let isValidPassword = validatePassword();
-		return isValidEmail && isValidPassword;
-	}
-
-	form.addEventListener('submit', (e) => {
-		e.preventDefault(); // Do not submit to the server 
-		if (validationForm()) {
-			alert('Success!');
-		}
-	});
-
-	emailInput.addEventListener('input', validateEmail);
-	passwordInput.addEventListener('input', validatePassword);
 
 	function showModal(title, text) {
 		// Clear all existing modal content
@@ -155,10 +83,10 @@ let pokemonRepository = (function () {
 		closeButtonElement.addEventListener('click', hideModal);
 
 		let titleElement = document.createElement('h1');
-		titleElement.innerText = title;
+		titleElement.innerText = pokemon.name;
 
 		let contentElement = document.createElement('p');
-		contentElement.innerText = text;
+		contentElement.innerText = pokemon.height;
 
 		modal.appendChild(closeButtonElement);
 		modal.appendChild(titleElement);
@@ -179,42 +107,7 @@ let pokemonRepository = (function () {
 		}
 	}
 
-	function showDialog(title, text) {
-		showModal(title, text);
-
-		// Add a confirm and cancel button to the modal
-		let modal = modalContainer.querySelector('.modal');
-
-		let confirmButton = document.createElement('button');
-		confirmButton.classList.add('modal-confirm');
-		confirmButton.innerText = 'Confirm';
-
-		let cancelButton = document.createElement('button');
-		cancelButton.classList.add('modal-cancel');
-		cancelButton.innerText = 'Cancel';
-
-		modal.appendChild(confirmButton);
-		modal.appendChild(cancelButton);
-
-		// Focus the confirmButton so that the user can just press Enter
-		confirmButton.focus();
-
-		// Return a promise that resolves when confirmed, else rejects
-		return new Promise((resolve, reject) => {
-			cancelButton.addEventListener('click', () => {
-				hideModal();
-				reject();
-			});
-			confirmButton.addEventListener('click', () => {
-				hideModal();
-				resolve();
-			})
-
-			// Can be use to reject from other functions
-			dialogPromiseReject = reject;
-		}
-	}
-
+	
 	document.querySelector('#show-modal').addEventListener('click'), () => {
 		showModal('Modal title', 'This is the modal content!');
 	}
