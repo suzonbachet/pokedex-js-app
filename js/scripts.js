@@ -168,12 +168,55 @@ let pokemonRepository = (function () {
 		modalContainer.classList.add('is-visible');
 	}
 
-	document.querySelector('#show-modal').addEventListener('click'), () => {
-		showModal('Modal title', 'This is the modal content!');
-	}
+	let dialogPromiseReject; 
 
 	function hideModal() {
 		modalContainer.classList.remove('is-visible');
+
+		if (dialogPromiseReject) {
+			dialogPromiseReject();
+			dialogPromiseReject = null;
+		}
+	}
+
+	function showDialog(title, text) {
+		showModal(title, text);
+
+		// Add a confirm and cancel button to the modal
+		let modal = modalContainer.querySelector('.modal');
+
+		let confirmButton = document.createElement('button');
+		confirmButton.classList.add('modal-confirm');
+		confirmButton.innerText = 'Confirm';
+
+		let cancelButton = document.createElement('button');
+		cancelButton.classList.add('modal-cancel');
+		cancelButton.innerText = 'Cancel';
+
+		modal.appendChild(confirmButton);
+		modal.appendChild(cancelButton);
+
+		// Focus the confirmButton so that the user can just press Enter
+		confirmButton.focus();
+
+		// Return a promise that resolves when confirmed, else rejects
+		return new Promise((resolve, reject) => {
+			cancelButton.addEventListener('click', () => {
+				hideModal();
+				reject();
+			});
+			confirmButton.addEventListener('click', () => {
+				hideModal();
+				resolve();
+			})
+
+			// Can be use to reject from other functions
+			dialogPromiseReject = reject;
+		}
+	}
+
+	document.querySelector('#show-modal').addEventListener('click'), () => {
+		showModal('Modal title', 'This is the modal content!');
 	}
 
 	window.addEventListener('keydown', (e) => {
@@ -188,6 +231,14 @@ let pokemonRepository = (function () {
 		let targer = e.target;
 		if (target === modalContainer) {
 			hideModal();
+		}
+	}
+
+	document.querySelector('#show-dialog').addEventListener('click', () => {
+		showDialog('Confirm action', 'Are you sure you want to do this ?').then(function() {
+			alert('Confirmed!');
+		}, () => {
+			alert('Not confirmed');
 		}
 	}
 
