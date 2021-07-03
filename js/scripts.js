@@ -43,7 +43,7 @@ let pokemonRepository = (function () {
 	function loadDetails(item) {
 		let url = item.detailsUrl;
 		return fetch(url).then(function (response) { 
-			return reponse.json();
+			return response.json();
 		}).then(function (details) {
 			// add the details to the item
 			item.imageUrl = details.sprites.front_default;
@@ -66,8 +66,6 @@ let pokemonRepository = (function () {
 		addListItem: addListItem,
 		loadList: loadList,
 		loardDetails: loadDetails
-	}
-	
 	};
 })();
 
