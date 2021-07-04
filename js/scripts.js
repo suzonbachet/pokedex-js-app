@@ -109,14 +109,14 @@ let pokemonRepository = (function () {
 
 	
 	document.querySelector('#show-modal').addEventListener('click'), () => {
-		showModal('Modal title', 'This is the modal content!');
+		showModal(title, text);
 	}
 
 	window.addEventListener('keydown', (e) => {
 		if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
 			hideModal();
 		}
-	}
+	});
 
 	modalContainer.addEventListener('click', (e) => {
 		// Since this is also triggered when clicking INSIDE the modal
@@ -125,15 +125,15 @@ let pokemonRepository = (function () {
 		if (target === modalContainer) {
 			hideModal();
 		}
-	}
+	});
 
 	document.querySelector('#show-dialog').addEventListener('click', () => {
 		showDialog('Confirm action', 'Are you sure you want to do this ?').then(function() {
 			alert('Confirmed!');
 		}, () => {
 			alert('Not confirmed');
-		}
-	}
+		});
+	});
 
 	return {
 	getAll: getAll,
