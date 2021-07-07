@@ -64,12 +64,12 @@ let pokemonRepository = (function () {
 
 	function showDetails(pokemon) {
 			loadDetails(pokemon).then(function () {
-				pokemonRepository.showModal(title, text);
+				pokemonRepository.showModal(pokemon);
 			});
 	}
 
 
-	function showModal(title, text) {
+	function showModal(pokemon) {
 		// Clear all existing modal content
 		modalContainer.innerHTML = '';
 
@@ -86,7 +86,12 @@ let pokemonRepository = (function () {
 		titleElement.innerText = pokemon.name;
 
 		let contentElement = document.createElement('p');
-		contentElement.innerText = pokemon.height;
+		let pokemonImage = document.createElement('img');
+		pokemonImage.src = pokemon.imageUrl;
+		pokemonImage.classList.add('pokemon-image');
+		contentElement.appendChild(pokemonImage)
+		contentElement.innerText = 'Height: ' + pokemon.height + pokemonImage;
+	
 
 		modal.appendChild(closeButtonElement);
 		modal.appendChild(titleElement);
@@ -100,11 +105,6 @@ let pokemonRepository = (function () {
 		modalContainer.classList.remove('is-visible');
 	}
 
-	
-	document.querySelector('#show-modal').addEventListener('click'), () => {
-		showModal(title, text);
-	}
-
 	window.addEventListener('keydown', (e) => {
 		if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
 			hideModal();
@@ -114,7 +114,7 @@ let pokemonRepository = (function () {
 	modalContainer.addEventListener('click', (e) => {
 		// Since this is also triggered when clicking INSIDE the modal
 		// We only want to close if the user clicks directly on the overlay
-		let targer = e.target;
+		let target = e.target;
 		if (target === modalContainer) {
 			hideModal();
 		}
@@ -155,6 +155,7 @@ function showModal(title, text) {
 
 		let contentElement = document.createElement('p');
 		contentElement.innerText = pokemon.height;
+		// add img
 
 		modal.appendChild(closeButtonElement);
 		modal.appendChild(titleElement);
@@ -168,7 +169,6 @@ function hideModal() {
 		modalContainer.classList.remove('is-visible');
 	}
 
-	
 	document.querySelector('#show-modal').addEventListener('click'), () => {
 		showModal(title, text);
 	}
