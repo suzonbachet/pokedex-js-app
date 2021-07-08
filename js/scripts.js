@@ -20,6 +20,8 @@ let pokemonRepository = (function () {
 		let button = document.createElement("button");
 		button.innerText = pokemon.name;
 		button.classList.add("button-class");
+		button.classList.add("btn");
+		button.classList.add("btn-lg");
 		listItem.appendChild(button);
 		unorderedList.appendChild(listItem);
 		// Add EventListener to the button: pokemon details should be displayd after a button click
