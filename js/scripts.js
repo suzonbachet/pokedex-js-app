@@ -19,14 +19,20 @@ let pokemonRepository = (function () {
 		let listItem = document.createElement("li");
 		let button = document.createElement("button");
 		button.innerText = pokemon.name;
+		button.data-toggle = "modal";
+		button.data-target = "modal";
 		button.classList.add("button-class");
 		button.classList.add("btn");
+		button.classList.add("btn primary");
 		button.classList.add("btn-lg");
+		button.classList.add("group-list-item");
 		listItem.appendChild(button);
 		unorderedList.appendChild(listItem);
+
 		// Add EventListener to the button: pokemon details should be displayd after a button click
 		button.addEventListener("click", function(event) {
 			showDetails(pokemon);
+
 		});
 	}
 
@@ -117,7 +123,7 @@ let pokemonRepository = (function () {
 
 	function hideModal() {
 		modalContainer.classList.remove('is-visible');
-	}*/
+	}
 
 	window.addEventListener('keydown', (e) => {
 		if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
@@ -132,7 +138,7 @@ let pokemonRepository = (function () {
 		if (target === modalContainer) {
 			hideModal();
 		}
-	});
+	});*/
 
 	return {
 	getAll: getAll,

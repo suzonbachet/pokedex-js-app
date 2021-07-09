@@ -12,20 +12,20 @@
 
 
 <body>
-	<nav class="navbar navbar-light bg-light navbar-expend-sm fixed-top">
+	<nav class="navbar navbar-light bg-light navbar-expend-sm fixed-top sr-only-focusable">
 		Navbar
 	</nav>
 
 	<div class="page-container">
 		<h1>Pokedex</h1>
 
-		<button type="button" class="btn button-primary" data-toggle="modal" data-target="#exampleModal">
+		<button type="button" class="btn button-primary sr-only-focusable" data-toggle="modal" data-target="#exampleModal">
 			Demo Modal
 		</button>
 
 		<div class="modal-fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-contant">
+			<div class="modal-dialog sr-only-focusable" role="document">
+				<div class="modal-content" data-toggle="modal" data-target="modal">
 					<div class="modal-header">
 						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -43,7 +43,7 @@
 			</div>
 		</div>
 
-		<ul class="pokemon-list"></ul>
+		<ul class="pokemon-list list-group"></ul>
 
 		<script
 		  src="https://code.jquery.com/jquery-3.3.1.min.js"
