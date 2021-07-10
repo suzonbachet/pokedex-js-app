@@ -81,7 +81,7 @@ let pokemonRepository = (function () {
 		modalBody.empty();
 
 		let pokemonName = $("<h1>" + pokemon.name + "</h1>");
-		let pokemonImage = $('<img class="modal-img" style="width:50%">');
+		let pokemonImage = $('<img class="modal-img img-fluid" style="width:50%">');
 		pokemonImage.attr("src", pokemon.imageUrl);
 		let pokemonHeight = $("<p>" + "height: " + pokemon.height + "</p>");
 
@@ -124,11 +124,11 @@ let pokemonRepository = (function () {
 	window.addEventListener('keydown', (e) => {
 		if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
 			hideModal();
-		}*/
+		}
 
-	//};
+	};
 
-	/*modalContainer.addEventListener('click', (e) => {
+	modalContainer.addEventListener('click', (e) => {
 		// Since this is also triggered when clicking INSIDE the modal
 		// We only want to close if the user clicks directly on the overlay
 		let target = e.target;
