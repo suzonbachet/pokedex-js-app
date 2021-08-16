@@ -31,7 +31,7 @@ body {
 	list-style: none;
 }
 
-#modal-container {
+/* #modal-container {
 	display: none;
 }
 
@@ -45,13 +45,10 @@ body {
 	height: 100%;
 	background: rgba(0, 0, 0, 0.5);
 
-	/* to show it above other content */
 	z-index: 999;
 
-	/* to allow scrolling if the screen is not high enough */
 	overflow: auto;
 
-	/* to center the modal */
 	display: block;
 	text-align: center;
 }
@@ -82,7 +79,8 @@ body {
 
 .modal p {
 	margin-bottom: 0;
-}
+} */
+
 
 
 
