@@ -1,7 +1,7 @@
 <h1>Pokedex App</h1>
 
 <h2>Project description</h2>
-Web application displaying a list of Pokemon and showing Pokemon details when clicking on their names. The Pokemon details are loaded via an external API.
+Web application displaying a list of Pokemon and showing Pokemon details when clicking on their names. The Pokemon details are loaded via an <a href="https://pokeapi.co/api/v2/pokemon">external API</a>.
 
 <h2>Technologies used</h2>
 <ul>
