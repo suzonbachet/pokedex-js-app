@@ -1,7 +1,6 @@
 let pokemonRepository = (function () {
 	let pokemonList = [];
 	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-	let modalContainer = document.querySelector('#modal-container');
 
 
 	function getAll() {
@@ -15,18 +14,18 @@ let pokemonRepository = (function () {
 
 
 	function addListItem(pokemon) {
-		let unorderedList = document.querySelector(".pokemon-list");
-		let listItem = document.createElement("li");
-		let button = document.createElement("button");
+		let unorderedList = document.querySelector('.pokemon-list');
+		let listItem = document.createElement('li');
+		let button = document.createElement('button');
 		button.innerText = pokemon.name;
-		button.classList.add("button-class", "btn", "btn-primary", "btn-lg", "group-list-item");
-		button.dataset.target = "#exampleModal";
-    	button.dataset.toggle = "modal";
+		button.classList.add('button-class', 'btn', 'btn-primary', 'btn-lg', 'group-list-item');
+		button.dataset.target = '#exampleModal';
+		button.dataset.toggle = 'modal';
 		listItem.appendChild(button);
 		unorderedList.appendChild(listItem);
 
 		// Add EventListener to the button: pokemon details should be displayd after a button click
-		button.addEventListener("click", function(event) {
+		button.addEventListener('click', function() {
 			showDetails(pokemon);
 
 		});
@@ -74,18 +73,17 @@ let pokemonRepository = (function () {
 
 
 	function showModal(pokemon) {
-		let modalBody = $(".modal-body");
-		let modalTitle = $(".modal-title");
-		let modalHeader = $(".modal-header");
+		let modalBody = $('.modal-body');
+		let modalTitle = $('.modal-title');
 
 		// Clear all existing modal content
 		modalTitle.empty();
 		modalBody.empty();
 
-		let pokemonName = $("<h1>" + pokemon.name + "</h1>");
+		let pokemonName = $('<h1>' + pokemon.name + '</h1>');
 		let pokemonImage = $('<img class="modal-img img-fluid" style="width:50%">');
-		pokemonImage.attr("src", pokemon.imageUrl);
-		let pokemonHeight = $("<p>" + "height: " + pokemon.height + "</p>");
+		pokemonImage.attr('src', pokemon.imageUrl);
+		let pokemonHeight = $('<p>' + 'height: ' + pokemon.height + '</p>');
 	
 
 		modalTitle.append(pokemonName);
